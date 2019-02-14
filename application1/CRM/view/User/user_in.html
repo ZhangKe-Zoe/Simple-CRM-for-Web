@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>客户关系管理系统</title>
+		<link rel="stylesheet" type="text/css" href="../../../../../bootstrap.min.css" />
+		<script src="../../../../../jquery-3.2.1.min.js"></script>
+		<script src="../../../../../bootstrap.min.js"></script>
+		<script src=""></script>
+	</head>
+
+	<body>
+		<!--导航开始-->
+		<ul id="myTab" class="nav nav-tabs ">
+			<!--导航栏右部-->
+			<div>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a>
+							欢迎使用客户关系管理系统! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</a>
+					</li>
+					<!--todo 退出-->
+
+				</ul>
+			</div>
+			<!--客户信息管理-->
+			<li class="dropdown">
+				<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">客户信息管理
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+					<li>
+						<a href="#client_info_add" tabindex="-1" data-toggle="tab">增加信息</a>
+					</li>
+					<li>
+						<a href="#client_info_del" tabindex="-1" data-toggle="tab">刪除信息</a>
+					</li>
+					<li>
+						<a href="#client_info_upd" tabindex="-1" data-toggle="tab">修改信息</a>
+					</li>
+					<li>
+						<a href="#client_info_ser" tabindex="-1" data-toggle="tab">查看信息</a>
+					</li>
+				</ul>
+			</li>
+			<!--客户关系管理-->
+			<li class="dropdown">
+				<a href="#client_rela" id="myTabDrop2" class="dropdown-toggle" data-toggle="dropdown">客户关系管理
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop2">
+					<li>
+						<a href="#client_rela_add" tabindex="-1" data-toggle="tab">增加关系</a>
+					</li>
+					<li>
+						<a href="#client_rela_upd" tabindex="-1" data-toggle="tab">修改关系</a>
+					</li>
+					<li>
+						<a href="#client_rela_del" tabindex="-1" data-toggle="tab">删除关系</a>
+					</li>
+					<li>
+						<a href="#client_rela_ser" tabindex="-1" data-toggle="tab">查询关系</a>
+					</li>
+
+				</ul>
+			</li>
+			<!--订单管理-->
+			<li class="dropdown">
+				<a href="#c_oredr" id="myTabDrop3" class="dropdown-toggle" data-toggle="dropdown">订单管理
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop3">
+					<li>
+						<a href="#c_order_add" tabindex="-1" data-toggle="tab">增加订单</a>
+					</li>
+					<li>
+						<a href="#c_order_upd" tabindex="-1" data-toggle="tab">修改订单</a>
+					</li>
+					<li>
+						<a href="#c_order_del" tabindex="-1" data-toggle="tab">删除订单</a>
+					</li>
+					<li>
+						<a href="#c_order_ser" tabindex="-1" data-toggle="tab">查询订单</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<!--导航结束-->
+		<!--分页信息-->
+		<div id="myTabContent" class="tab-content text-center">
+
+			<!--客户信息管理-->
+
+			<!--添加客户信息-->
+			<div class="tab-pane fade row" id="client_info_add">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Ci/add" method="post">
+					<div class="form-group">
+						<h2>增加客户信息</h2>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">姓名:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Cname_add" name="Cname_add" placeholder="请输入客户名字">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">性别:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Csex_add" name="Csex_add" placeholder="请输入客户性别">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">公司:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Ccomp_add" name="Ccomp_add" placeholder="请输入客户所在单位">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职位:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Cpsoi_add" name="Cposi_add" placeholder="请输入客户职位">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">电话:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Ctel_add" name="Ctel_add" placeholder="请输入客户电话号码">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-2">
+							<button type="submit" class="btn btn-primary btn-lg">添加</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button type="reset" class="btn btn-default btn-lg">	取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--删除客户信息-->
+			<div class="tab-pane fade row" id="client_info_del">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Ci/del" method="post">
+					<div class="form-group">
+						<div class="form-group">
+							<h2>删除客户信息</h2>
+						</div>
+						<label class="col-sm-2 control-label">姓名：</label>
+						<div class=" col-lg-6">
+							<input type="text" class="form-control" id="Cname_del" name="Cname_del" placeholder="请输入要刪除客户的名字">
+						</div>
+						<div class="col-lg-2">
+							<button type="submit" class="btn btn-default ">刪除</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--修改客户信息-->
+			<div class="tab-pane fade row" id="client_info_upd">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Ci/upd" method="post">
+					<div class="form-group">
+						<div class="form-group">
+							<h2>修改客户信息</h2>
+						</div>
+						<label class="col-sm-2 control-label">姓名：</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Cname_upd" name="Cname_upd" placeholder="请输入修改的客户名字">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">性别：</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Csex_upd" name="Csex_upd" placeholder="请输入修改的客户性别">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">公司：</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="Ccomp_upd" name="Ccomp_upd" placeholder="请输入修改的客户所在单位">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">职位：</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="Cpsoi_upd" name="Cposi_upd" placeholder="请输入修改的客户职位">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">电话：</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="Ctel_upd" name="Ctel_upd" placeholder="请输入修改的客户电话号码">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-8">
+							<button type="submit" class="btn btn-primary btn-lg">修改</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button type="reset" class="btn btn-default btn-lg">取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--查询客户信息-->
+			<div class="tab-pane fade row" id="client_info_ser">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Ci/ser" method="post">
+					<div class="form-group">
+						<div class="form-group">
+							<h2>查询客户信息</h2>
+						</div>
+						<label class="col-sm-2 control-label">姓名：</label>
+						<div class="col-lg-6">
+							<input type="text" class="form-control" id="Cname_ser" name="Cname_ser" placeholder="请输入要查询客户的名字">
+						</div>
+						<div class="col-lg-2">
+							<button type="submit" class="btn btn-default">查询</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<!--客户关系管理-->
+
+			<!--添加客户关系-->
+			<div class="tab-pane fade row" id="client_rela_add">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Cr/add" method="post">
+					<div class="form-group">
+						<h2>增加客户关系</h2>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">姓名:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Cname_add" name="Cname_add" placeholder="请输入客户名字">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">合作意向:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Ctend_add" name="Ctend_add" placeholder="请输入客户合作意向">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">合作项目:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Ccomp_add" name="Cproj_add" placeholder="请输入客户合作项目">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">项目回款:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Cpay_add" name="Cpay_add" placeholder="请输入项目回款金额">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-2">
+							<button type="submit" class="btn btn-primary btn-lg">添加</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button type="reset" class="btn btn-default btn-lg">	取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--删除客户关系-->
+			<div class="tab-pane fade row" id="client_rela_del">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Cr/del" method="post">
+					<div class="form-group">
+						<div class="form-group">
+							<h2>删除客户关系</h2>
+						</div>
+						<label class="col-sm-2 control-label">姓名：</label>
+						<div class=" col-lg-6">
+							<input type="text" class="form-control" id="Cname_del" name="Cname_del" placeholder="请输入要刪除客户的名字">
+						</div>
+						<div class="col-lg-2">
+							<button type="submit" class="btn btn-default ">刪除</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--修改客户关系-->
+			<div class="tab-pane fade row" id="client_rela_upd">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Cr/upd" method="post">
+					<div class="form-group">
+						<div class="form-group">
+							<h2>修改客户关系</h2>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">姓名:</label>
+							<div class=" col-lg-10">
+								<input type="text" class="form-control" id="Cname_upd" name="Cname_upd" placeholder="请输入修改的客户名字">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">合作意向:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Ctend_upd" name="Ctend_upd" placeholder="请输入修改的客户合作意向">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">合作项目:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Cproj_upd" name="Cproj_upd" placeholder="请输入修改的客户所在单位">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">项目回款:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Cpay_upd" name="Cpay_upd" placeholder="请输入修改的客户回款金额">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-8">
+							<button type="submit" class="btn btn-primary btn-lg">修改</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button type="reset" class="btn btn-default btn-lg">取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--查询客户关系-->
+			<div class="tab-pane fade row" id="client_rela_ser">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Cr/ser" method="post">
+					<div class="form-group">
+						<div class="form-group">
+							<h2>查询客户关系</h2>
+						</div>
+						<label class="col-sm-2 control-label">姓名：</label>
+						<div class="col-lg-6">
+							<input type="text" class="form-control" id="Cname_ser" name="Cname_ser" placeholder="请输入要查询客户的名字">
+						</div>
+						<div class="col-lg-2">
+							<button type="submit" class="btn btn-default">查询</button>
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+			<!--订单管理-->
+
+			<!--添加订单-->
+			<div class="tab-pane fade row" id="c_order_add">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Co/add" method="post">
+					<div class="form-group">
+						<h2>增加订单</h2>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">订单名称:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Oname_add" name="Oname_add" placeholder="请输入订单名称">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">订单数量:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Onum_add" name="Onum_add" placeholder="请输入订单数量">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">订单客户:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Ocli_add" name="Ocli_add" placeholder="请输入订单所属客户">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">订单日期:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Odate_add" name="Odate_add" placeholder="请输入订单日期">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-2">
+							<button type="submit" class="btn btn-primary btn-lg">添加</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button type="reset" class="btn btn-default btn-lg">	取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--删除订单-->
+			<div class="tab-pane fade row" id="c_order_del">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Co/del" method="post">
+					<div class="form-group">
+						<div class="form-group">
+							<h2>删除订单</h2>
+						</div>
+						<label class="col-sm-2 control-label">姓名：</label>
+						<div class=" col-lg-6">
+							<input type="text" class="form-control" id="Oname_del" name="Oname_del" placeholder="请输入要刪除订单名称">
+						</div>
+						<div class="col-lg-2">
+							<button type="submit" class="btn btn-default ">刪除</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--修改订单-->
+			<div class="tab-pane fade row" id="c_order_upd">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Co/upd" method="post">
+					<div class="form-group">
+						<div class="form-group">
+							<h2>修改订单</h2>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">订单名称:</label>
+							<div class=" col-lg-10">
+								<input type="text" class="form-control" id="Oname_upd" name="Oname_upd" placeholder="请输入修改的订单名称">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">订单数量:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Onum_upd" name="Onum_upd" placeholder="请输入修改的订单数量">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">订单客户:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Ocli_upd" name="Ocli_upd" placeholder="请输入修改的订单所属客户">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">订单日期:</label>
+						<div class=" col-lg-10">
+							<input type="text" class="form-control" id="Odate_upd" name="Odate_upd" placeholder="请输入修改的订单日期">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-8">
+							<button type="submit" class="btn btn-primary btn-lg">修改</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button type="reset" class="btn btn-default btn-lg">取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!--查询订单-->
+			<div class="tab-pane fade row" id="c_order_ser">
+				<form class="form-horizontal" role="form" action="/TP5/public/CRM/Co/ser" method="post">
+					<div class="form-group">
+						<div class="form-group">
+							<h2>查询订单详情</h2>
+						</div>
+						<div class="form-group ">
+							<label class="col-sm-2 control-label">订单名称：</label>
+							<div class="col-lg-8">
+								<input type="text" class="form-control" id="Oname_ser" name="Oname_ser" placeholder="请输入要查询订单的名称">
+							</div>
+							<div class="col-lg-2">
+								<button type="submit" class="btn btn-default">查询</button>
+							</div>
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+		</div>
+	</body>
+
+</html>
